@@ -1,7 +1,8 @@
 import React from "react";
-import MyComponent from "./MyComponent";
-import YourComponent from "./YourComponent";
-import Say from "./Say";
+import MyComponent from "./components/study/MyComponent";
+import YourComponent from "./components/study/YourComponent";
+import Say from "./components/study/Say";
+import ArrayChange from "./components/study/ArrayChange";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <YourComponent country='ROK' />
 
       <Say msg='안녕하세요'/>
+
+      <ArrayChange/>
     </>
   );
 }
