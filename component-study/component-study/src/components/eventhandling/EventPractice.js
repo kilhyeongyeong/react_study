@@ -12,7 +12,6 @@ const EventPractice = () => {
     }
 
     const handleChange = (e) => {
-        console.log(e);
         if(e.target.name == "username") setUsername(e.target.value);
         else setMassage(e.target.value);
     }

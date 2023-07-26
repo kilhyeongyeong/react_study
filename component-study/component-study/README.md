@@ -50,3 +50,49 @@
         }}>버튼</button>
     )
     ```
+
+# [map](https://github.com/kilhyeongyeong/react_study/blob/master/component-study/component-study/src/components/iteration/IterationSample.js)
+
+* 개념<br>
+    반복문(순차적으로 파라미터로 넣어줌)
+
+* 사용법
+    ```
+    const list = [1,2,3,4];
+    list.map((item, index) => {console.log(item + ", " + index)})
+    // 결과
+    // 1, 0
+    // 2, 1
+    // 3, 2
+    // 4, 3
+    ```
+
+* <b>Warning</b><br>
+    만약 li태그를 사용할 경우 key값 설정이 필요. 그렇지 않을 경우 다음과 같은 warning 출력<br>
+    ![in_map_notinclude_key_warning](https://github.com/kilhyeongyeong/react_study/blob/master/component-study/component-study/src/image/not_include_key_warning.png "warning")<br>
+
+# [filter](https://github.com/kilhyeongyeong/react_study/blob/master/component-study/component-study/src/components/iteration/IterationSample2.js)
+
+* 개념<br>
+    조건의 결과값이 True인 값들만 반환
+
+* 사용법
+    ```
+    const list = [1, 3, 5, 7, 9];
+    list.filter(item => item > 5);
+    // 결과
+    // [7, 9]
+    ```
+
+# [hook](https://github.com/kilhyeongyeong/react_study/tree/master/component-study/component-study/src/components/hooks)
+
+* 개념<br>
+    useState, useEffect, 그 외 use를 포함한 다양한 함수들을 포함한 라이브러리
+
+* 주의사항<br>
+    반복문, 조건문, 중첩 함수 등 안에서 사용 금지(실행 순서가 꼬일 수 있음)
+
+# [useEffect]()
+
+* 개념<br>
+    리액트 컴포넌트가 렌더링 될 때마다 실행하고 싶은 코드를 설정하는 것
