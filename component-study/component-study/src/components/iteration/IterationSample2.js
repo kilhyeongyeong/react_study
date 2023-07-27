@@ -17,7 +17,8 @@ const IterationSample2 = () => {
         const ret = window.confirm("해당 요소를 삭제 하시겠습니까?");
         if(!ret) return;
         // 더블클릭한 번호가 아닌 자바스크립트 객체들만 리스트에 남긴채 저장
-        setNames(names.filter(name => name.id != id));
+        // 동시다발적으로 변경되거나, 충분히 화면이 많이 바뀌는 경우 오류 발생할 수 있기에 이전 상태를 한 번 더 구현
+        setNames(prevState => prevState.filter(name => name.id != id));
     }
     
     const onChangeEvent = (e) => {

@@ -92,7 +92,66 @@
 * 주의사항<br>
     반복문, 조건문, 중첩 함수 등 안에서 사용 금지(실행 순서가 꼬일 수 있음)
 
-# [useEffect]()
+# [useEffect](https://github.com/kilhyeongyeong/react_study/tree/master/component-study/component-study/src/components/hooks/Info.js)
 
 * 개념<br>
     리액트 컴포넌트가 렌더링 될 때마다 실행하고 싶은 코드를 설정하는 것
+
+* 사용법<br>
+    1. []안에 있는 요소가 변할 때 마다 처리 로직 실행
+    ```
+    useEffect(() => { 처리 로직 }, [요소])
+    ```
+    2. 최초 한 번만 처리로직 실행
+    ```
+    useEffect(() => {처리로직}, [])
+    ```
+    3. 모든 요소가 변화할 때 마다 처리로직 실행
+    ```
+    useEffect(() => {처리로직})
+    ```
+    4. 처리 로직이 실행 되기 전에 실행하고 싶은 로직 처리(return문 먼저 실행 된 후 처리로직 실행)<br>
+    <b>`cleanup 함수`</b> 라도고 함
+    ```
+    useEffect(() => {
+        처리 로직
+        return ( 처리로직 실행 이전 처리 로직 );
+    })
+    ```
+
+* 주의사항<br>
+    단! return 구문은 ,[]안에 변화요소가 있을 경우 또는 전체 요소가 변경되는 소스에서만 사용가능
+
+# [useMemo](https://github.com/kilhyeongyeong/react_study/tree/master/component-study/component-study/src/components/hooks/Average.js)
+
+* 개념<br>
+    렌더링 여부 상관 없이 지정한 값이 변화했을 경우에만 실행되며, 성능 최적화에 도움을 줌
+
+* 사용법<br>
+    ```
+    // 전역함수로 평균을 구하는 함수(getAverage(list)) 존재
+    // list 값이 변경될 때만 실행
+    const avg = useMemo(() => getAverage(list), [list]);
+    ```
+
+* useEffect와 useMemo의 차이점
+    * useEffect : 렌더링 시 실행
+    * useMemo : 렌더링 상황이 아니어도 지정 상태변수에 변화 감지시 실행
+
+# css
+* css 관리 방법<br>
+    <blockquote> 
+    ./component/Abc/aaa.js<br>
+    ./component/Abc/bbb.js
+    </blockquote>
+    1. js 폴더와 css 폴더 생성<br>
+    2. aaa 폴더와 bbb 폴더를 생성하여 각각의 폴더 안에 js와 css 파일 생성
+
+* css 네이밍 규칙<br>
+    aaa.js에서만 사용할 것이라면 <b>`aaa-이름`</b> 형식 준수<br>
+    aaa.js에만 import를 했더라도, 같은 폴더-다른 파일(bbb.js 그 외)에도 <b>모두 적용</b>이 되기 때문
+
+* CSS 모듈<br>
+    이게 모징
+    파일명.module.css<br>
+    전역 css 파일
